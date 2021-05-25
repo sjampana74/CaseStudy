@@ -3,7 +3,7 @@ pipeline {
                nodejs "node"
               }
         agent {
-        Dockerfile {
+        dockerfile {
                    filename "Dockerfile"
                    args "-v /tmp/Dockerfile:/tmp/Dockerfile -p 8000:8000"
                    reuseNode true
