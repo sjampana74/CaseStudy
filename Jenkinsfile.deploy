@@ -4,6 +4,7 @@ pipeline {
      stage('deploy') {
         steps {
           sh 'kubectl apply -f reactapp-deployment.yaml'
+          sh 'kubectl apply -f reactapp-service.yaml'
         }
      }
    }
