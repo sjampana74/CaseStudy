@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: reactapp-project
-        image: sjampana20/reactapp:1.0
+        image: sjampana20/reactapp1:1.0
         ports:
         - containerPort: 8080
