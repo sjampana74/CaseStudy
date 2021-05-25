@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: reactapp-project
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: reactapp-project
+    spec:
+      containers:
+      - name: reactapp-project
+        image: sjampana20/reactapp:1.0
+        ports:
+        - containerPort: 8080

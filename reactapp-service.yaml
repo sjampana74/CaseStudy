@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactapp-service
+  labels:
+    app: reactapp-project
+spec:
+  selector:
+    app: reactapp-project
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30180
