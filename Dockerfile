@@ -1,20 +1,17 @@
-# Set the base image.
-FROM node:14.15.1 
+FROM node:14.15.1
+
+#RUN apt-get update && apt-get upgrade -y \
+    #&& apt-get clean
+
+RUN mkdir /app
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/
+RUN npm install 
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+COPY src /app/src
 
-# add app
-COPY . ./
-
-# start app
-CMD ["npm", "start"]
 EXPOSE 3000
-#ENTRYPOINT /home/syam_jampana/dockerchallenge/casestudy1/entrypoint.sh
+
+CMD [ "npm", "start" ]
+

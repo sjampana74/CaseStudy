@@ -1,12 +1,12 @@
 pipeline {
         tools {
-               nodejs "node"
-              }
+             nodejs "node"
+        }
         agent any
         stages {
                 stage('Build') {
                         steps {
-                                sh 'npm run install'
+                                sh 'npm run build'
                         }
                 }
                 stage('Build Docker Image') {
@@ -16,7 +16,7 @@ pipeline {
                 }
                 stage('Push Docker Image') {
                         steps {
-                                withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDS', passwordVariable: 'DOCKER_HUB_PWD', usernameVariable: 'DOCKER_HUB_USER')])                                {
+                                withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDS', passwordVariable: 'DOCKER_HUB_PWD', usernameVariable: 'DOCKER_HUB_USER')]) {
                                 sh 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PWD'
                                 }
                                 sh "docker push sjampana20/addressbook:${pom.version}"
