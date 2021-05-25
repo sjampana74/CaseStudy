@@ -3,11 +3,11 @@ pipeline {
         tools {
                nodejs "node"
               }
-        dockerfile {
+        Dockerfile {
                    filename "Dockerfile"
                    args "-v /tmp/Dockerfile:/tmp/Dockerfile -p 8000:8000"
                    reuseNode true
-                   }
+           }
         stages {
                 stage('Build') {
                         steps {
