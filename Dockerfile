@@ -6,7 +6,7 @@ COPY package.json /var/lib/jenkins/workspace/reactapp1/
 COPY package-lock.json /var/lib/jenkins/workspace/reactapp1/
 #COPY package*.json /home/syam_jampana/node_modules/
 #COPY package*.json /var/lib/jenkins/workspace/reactapp1/
-RUN npm install
+#RUN npm install
 COPY . /var/lib/jenkins/workspace/reactapp1/
 EXPOSE 3000
 CMD ["npm", "start"]
